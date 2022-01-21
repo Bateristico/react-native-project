@@ -11,14 +11,21 @@ const ListScreen = () => {
   ];
   return (
     <FlatList
+      horizontal
+      showsVerticalScrollIndicator={false}
+      keyExtractor={pet => pet.name}
       data={pets}
       renderItem={({ item }) => {
-        return <Text>{item.name}</Text>;
+        return <Text style={styles.textStyle}>{item.name}</Text>;
       }}
     ></FlatList>
   );
 };
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  textStyle: {
+    marginVertical: 50
+  }
+});
 
 export default ListScreen;
